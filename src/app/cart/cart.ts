@@ -1,14 +1,21 @@
 import { Component } from '@angular/core';
-import { BeerCartService } from '../beer-cart';
-
+import { PizzaCartService } from '../pizza-cart';
+import { Pizza } from '../pizza-list/pizza';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-cart',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './cart.html',
   styleUrl: './cart.css',
 })
 export class Cart {
-  constructor(private cart : BeerCartService) {
-  
+cartList: Pizza[] = [];  
+  constructor(private cart : PizzaCartService) {
+
+   this.cart.cartList.subscribe (c =>{
+    this.cartList = c;
+  console.log(c);
+  });
+
   }
 }

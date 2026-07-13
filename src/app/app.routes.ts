@@ -1,20 +1,20 @@
 import { Routes } from '@angular/router';
-import { BreweryAbout } from './brewery-about/brewery-about';
-import { BreweryBeers } from './brewery-beers/brewery-beers';
+import { PizzeriaAbout } from './pizzeria-about/pizzeria-about';
+import { PizzeriaPizza } from './pizzeria-pizzas/pizzeria-pizzas';
  export const routes: Routes = [
     {
         path : '',
-        redirectTo: 'beers',
+        redirectTo: 'pizzas',
         pathMatch: 'full'   
     },
     {
         
-        path : 'beers',
-        component:BreweryBeers
+        path : 'pizzas',
+        component:PizzeriaPizza
     },
     {
         path : 'about',
-        component:BreweryAbout
+        component:PizzeriaAbout
     }
 ];
 export class AppRoutes {

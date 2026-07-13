@@ -1,5 +1,5 @@
 import { Component, EventEmitter,Input, OnInit, Output } from '@angular/core';
-import { Beer } from '../beer-list/beer';
+import { Pizza } from '../pizza-list/pizza';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 @Component({
