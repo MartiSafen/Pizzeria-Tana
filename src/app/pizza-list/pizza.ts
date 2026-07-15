@@ -1,4 +1,3 @@
-
 export interface Pizza {
   name: string;
   flavor: string;

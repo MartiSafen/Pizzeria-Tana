@@ -12,21 +12,28 @@
 
         </tr>
      </thead>
-    <tbody>
-        <tr *ngFor="let pizza of pizzas" [ngClass]="{ 'clearence': pizza.clearence }"  >
-            <td><img class="img-thumbnail" [src]="pizza.image" [alt]="pizza.name" width="100" height="200"></td>
+   <tbody>
+        <tr  *ngFor="let pizza of pizzas" [ngClass]="{ 'clearence': pizza.clearence }"  >
+                     
+      <td><img class="img-thumbnail" [src]="pizza.image" [alt]="pizza.name" width="100" height="200"></td> 
             <td>{{ pizza.name }}</td>
             <td>{{ pizza.flavor }}</td>
             <td>{{ pizza.price | currency }}</td>
             <td><span class="badge text-bg-danger" *ngIf="pizza.stock === 0">SIN STOCK</span></td>
-            <td>
-              <app-input-integer [(quantity)]="pizza.quantity" [max]="pizza.stock" *ngIf="pizza.stock" (maxReached)="maxReached($event)"></app-input-integer>
-           </td>
+           <td>
+ <app-input-integer
+  [quantity]="pizza.quantity || 0"
+  (quantityChange)="pizza.quantity = $event"
+  [max]="pizza.stock || 0"
+  (maxReached)="maxReached($event)">
+</app-input-integer>
+</td>
            <td>
               <button class="btn btn-primary"  (click)="addToCart(pizza)">Agregar al Carrito</button>     
             </td>
     
         </tr>
-    </tbody> 
+   </tbody> 
+
     </table>
  
