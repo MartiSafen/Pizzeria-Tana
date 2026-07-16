@@ -1,22 +1,14 @@
-<div class="d-flex justify-content-center align-items-center gap-1">
-  <button
-    class="btn btn-primary btn-sm"
-    type="button"
-    (click)="downQuantity()">
-    -
-  </button>
-
-  <input
-    type="number"
-    class="form-control text-center"
-    style="width: 60px;"
-    [(ngModel)]="quantity"
-    (ngModelChange)="changeQuantity()">
-
-  <button
-    class="btn btn-primary btn-sm"
-    type="button"
-    (click)="upQuantity()">
-    +
-  </button>
-</div>
+  <div class="d-flex justify-content-center align-items-center gap-1">
+    <button
+      class="btn btn-primary btn-sm"
+      type="button"
+      (click)="downQuantity()">
+      -
+    </button>
+      <input type="text" class="form-control text-center" style="width: 60px"
+            [(ngModel)]="quantity"
+             (ngModelChange)="changeQuantity()">
+    <button class="btn btn-primary btn-sm" type="button" (click)="upQuantity()">
+      +
+    </button>
+  </div>

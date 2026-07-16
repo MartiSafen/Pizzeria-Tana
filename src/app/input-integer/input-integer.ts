@@ -11,31 +11,38 @@ import { FormsModule } from '@angular/forms';
 })
 export class InputInteger implements OnInit {
 
-  @Input() quantity: number = 0;
-  @Input() max: number = 0;
+constructor() {}
+@Input()
+ quantity!: number;
 
-  @Output() quantityChange = new EventEmitter<number>();
-  @Output() maxReached = new EventEmitter<string>();
+ @Input()
+ max!: number;
 
+ @Output()
+  quantityChange: EventEmitter<number> = new EventEmitter<number>();  
+
+  @Output()
+  maxReached: EventEmitter<string> = new EventEmitter<string>();
   ngOnInit(): void {}
-
-  upQuantity(): void {
-    if (this.quantity < this.max) {
+upQuantity() :void{ 
+    if(this.quantity <this.max){
       this.quantity++;
       this.quantityChange.emit(this.quantity);
-    } else {
-      this.maxReached.emit('Se alcanzó el máximo de stock');
     }
-  }
-
-  downQuantity(): void {
-    if (this.quantity > 0) {
+    else{
+      this.maxReached.emit("Cantidad máxima alcanzada");
+    }
+}
+downQuantity(): void {
+    if(this.quantity > 0){
       this.quantity--;
       this.quantityChange.emit(this.quantity);
     }
   }
 
+
   changeQuantity(): void {
-    this.quantityChange.emit(this.quantity);
+  console.log(this.quantity);
+  this.quantityChange.emit(this.quantity);
   }
 }

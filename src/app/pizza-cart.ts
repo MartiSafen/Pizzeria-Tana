@@ -19,8 +19,7 @@ export class PizzaCartService{
       this._cartList.push( {...pizza} );
     }
     else {
-      item.quantity += pizza.quantity;
-    }
+    item.quantity = item.quantity + pizza.quantity;    }
     console.log(this._cartList);
     this.cartList.next(this._cartList);
     }

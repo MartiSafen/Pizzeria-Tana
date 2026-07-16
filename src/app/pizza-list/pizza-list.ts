@@ -17,27 +17,19 @@ pizzas: Pizza[] = [];
 
 constructor(private pizzaData: PizzaData, private cart: PizzaCartService) {}
 ngOnInit(): void {
-  console.log("ngOnInit");
-
-  this.pizzaData.getAll().subscribe({
-    next: (pizzas) => {
-      console.log("Pizzas recibidas:", pizzas);
-      this.pizzas = pizzas;
-    },
-    error: (error) => {
-      console.error("Error:", error);
-    }
-  });
+  this.pizzaData.getAll().subscribe(pizzas  => this.pizzas =pizzas); 
 }
 
 
+addToCart(pizza: Pizza): void {
+  if (pizza.quantity <= 0) {
+    return;
+  }
 
-   addToCart(pizza: Pizza): void{
-    this.cart.addToCart(pizza);
-    pizza.stock -= pizza.quantity;
-    pizza.quantity = 0;
-
-   }
+  this.cart.addToCart(pizza);
+  pizza.stock -= pizza.quantity;
+  pizza.quantity = 0;
+}
  maxReached(message: string) {
   console.log(message);
 }

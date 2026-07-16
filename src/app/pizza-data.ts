@@ -11,13 +11,7 @@ export class PizzaData {
 
 
   public getAll(): Observable<Pizza[]> {
-    return this.http.get<Pizza[]>(URL).pipe(
-      tap((pizzas: Pizza[]) => {
-        pizzas.forEach(pizza => {
-          pizza.quantity = 0;
-        });
-      })
-    );
+  return this.http.get<Pizza[]>(URL);
   }
     public deletePizza(id: number | string): Observable<Pizza []> {
     return this.http.delete<Pizza[]>(`${URL}/${id}`);
