@@ -13,7 +13,7 @@
         </tr>
      </thead>
    <tbody>
-        <tr  *ngFor="let pizza of pizzas" [ngClass]="{ 'clearence': pizza.clearence }"  >
+        <tr  *ngFor="let pizza of pizzas()"[ngClass]="{ 'clearence': pizza.clearence }"  >
                      
       <td><img class="img-thumbnail" [src]="pizza.image" [alt]="pizza.name" width="100" height="200"></td> 
             <td>{{ pizza.name }}</td>
